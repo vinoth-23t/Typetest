@@ -1,184 +1,334 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
+* {
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #6a11cb,
+    #2575fc,
+    #ff6a88,
+    #ffb86c
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  padding: 30px;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 2.7rem;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.stats {
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  gap: 18px;
+  margin-bottom: 25px;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.stats div {
+  flex: 1;
+  padding: 18px;
+  border-radius: 18px;
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
 }
 
-.ticks {
-  position: relative;
+.stats div:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.stats h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.stats p {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+/* ===========================
+   PROGRESS BAR
+=========================== */
+
+.progress-container {
   width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #00f260,
+    #0575e6,
+    #00f260
+  );
+  background-size: 200%;
+  animation: progressAnimation 3s linear infinite;
+  transition: width 0.3s ease;
+}
+
+@keyframes progressAnimation {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 200%;
+  }
+}
+
+.progress-text {
+  text-align: right;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   PARAGRAPH
+=========================== */
+
+.paragraph-box {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 22px;
+  min-height: 180px;
+  font-size: 1.4rem;
+  line-height: 2;
+  color: #cfcfcf;
+  margin-bottom: 20px;
+  user-select: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+/* Character Highlighting */
+
+.correct {
+  color: #22c55e;
+  transition: 0.15s;
+}
+
+.incorrect {
+  color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.18);
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+.current {
+  border-left: 3px solid #ffffff;
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ===========================
+   TEXT AREA
+=========================== */
+
+textarea {
+  width: 100%;
+  height: 160px;
+  border: none;
+  outline: none;
+  resize: none;
+  border-radius: 18px;
+  padding: 18px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
+}
+
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.button-group {
+  margin-top: 25px;
+  text-align: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 14px 34px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(
+    135deg,
+    #00c6ff,
+    #0072ff,
+    #8e2de2
+  );
+  background-size: 200%;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.3);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-position: right center;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ===========================
+   RESULT CARD
+=========================== */
+
+.result {
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(15px);
+  animation: fadeUp 0.6s ease;
+}
+
+.result h2 {
+  margin-bottom: 12px;
+  font-size: 2rem;
+}
+
+.result h3 {
+  margin: 8px 0;
+  font-size: 1.4rem;
+}
+
+.result p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .container {
+    padding: 20px;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .paragraph-box {
+    font-size: 1.1rem;
+    min-height: 150px;
+    line-height: 1.8;
+  }
+
+  textarea {
+    height: 140px;
+    font-size: 1rem;
+  }
+
+  .stats p {
+    font-size: 1.4rem;
   }
 }
